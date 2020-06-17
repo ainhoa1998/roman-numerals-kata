@@ -30,4 +30,10 @@ describe('Kata Roman Numerals', () => {
 
     expect(result).toBe('V')
   })
+
+  it('El número 6 es VI', () => {
+    const result = romanNumeral(6)
+
+    expect(result).toBe('VI')
+  })
 })
