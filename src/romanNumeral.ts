@@ -1,10 +1,6 @@
 export function romanNumeral(value: number): string {
-  if (value === 11) {
-    return 'XI'
-  }
-
-  if (value === 10) {
-    return 'X'
+  if (value > 9) {
+    return 'X' + 'I'.repeat(value - 10)
   }
 
   if (value === 9) {
