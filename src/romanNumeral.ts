@@ -1,4 +1,8 @@
 export function romanNumeral(value: number): string {
+  if (value === 9) {
+    return 'IX'
+  }
+
   if (value > 4) {
     return 'V' + 'I'.repeat(value - 5)
   }
