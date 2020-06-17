@@ -18,4 +18,10 @@ describe('Kata Roman Numerals', () => {
 
     expect(result).toBe('III')
   })
+
+  it('El número 4 es IV', () => {
+    const result = romanNumeral(4)
+
+    expect(result).toBe('IV')
+  })
 })
