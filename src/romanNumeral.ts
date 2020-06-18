@@ -1,6 +1,7 @@
-export function romanNumeral(value: number): string {
+export function romanNumeral(arabic: number): string {
   const letters = ['I', 'V', 'X']
   let result = ''
+  let value = arabic
 
   if (value === 14) {
     return 'XIV'
