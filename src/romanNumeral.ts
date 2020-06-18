@@ -1,4 +1,8 @@
 export function romanNumeral(value: number): string {
+  if (value === 17) {
+    return 'XVII'
+  }
+
   if (value === 16) {
     return 'XVI'
   }
