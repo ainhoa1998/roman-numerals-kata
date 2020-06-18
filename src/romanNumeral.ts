@@ -1,5 +1,5 @@
 export function romanNumeral(value: number): string {
-  const letras = ['I', 'V', 'X']
+  const letters = ['I', 'V', 'X']
   var str = ''
 
   if (value === 14) {
@@ -15,17 +15,17 @@ export function romanNumeral(value: number): string {
   }
 
   while (value > 9) {
-    str += letras[2]
+    str += letters[2]
     value -= 10
   }
 
   while (value > 4) {
-    str += letras[1]
+    str += letters[1]
     value -= 5
   }
 
   while (value > 0) {
-    str += letras[0]
+    str += letters[0]
     value -= 1
   }
 
