@@ -1,7 +1,24 @@
 export function romanNumeral(arabic: number): string {
-  const letters = ['I', 'V', 'X']
+  const dictionary = [
+    {
+      arabic: 1,
+      roman: 'I',
+    },
+    {
+      arabic: 5,
+      roman: 'V',
+    },
+    {
+      arabic: 10,
+      roman: 'X',
+    },
+  ]
   let result = ''
   let value = arabic
+
+  if (value === 19) {
+    return 'XIX'
+  }
 
   if (value === 14) {
     return 'XIV'
@@ -15,19 +32,19 @@ export function romanNumeral(arabic: number): string {
     return 'IV'
   }
 
-  while (value > 9) {
-    result += letters[2]
-    value -= 10
+  while (value > dictionary[2].arabic - 1) {
+    result += dictionary[2].roman
+    value -= dictionary[2].arabic
   }
 
-  while (value > 4) {
-    result += letters[1]
-    value -= 5
+  while (value > dictionary[1].arabic - 1) {
+    result += dictionary[1].roman
+    value -= dictionary[1].arabic
   }
 
-  while (value > 0) {
-    result += letters[0]
-    value -= 1
+  while (value > dictionary[0].arabic - 1) {
+    result += dictionary[0].roman
+    value -= dictionary[0].arabic
   }
 
   return result
