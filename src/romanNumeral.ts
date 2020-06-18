@@ -1,6 +1,6 @@
 export function romanNumeral(value: number): string {
   const letters = ['I', 'V', 'X']
-  var result = ''
+  let result = ''
 
   if (value === 14) {
     return 'XIV'
