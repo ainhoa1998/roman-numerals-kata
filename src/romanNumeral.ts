@@ -25,7 +25,6 @@ export function romanNumeral(arabic: number): string {
       arabic: 10,
       roman: 'X',
     },
-    { arabic: 14, roman: 'XIV' },
     { arabic: 19, roman: 'XIX' },
   ]
   let result = ''
@@ -47,6 +46,11 @@ export function romanNumeral(arabic: number): string {
   while (value > dictionary[2].arabic - 1) {
     result += dictionary[2].roman
     value -= dictionary[2].arabic
+  }
+
+  if (value === dictionary[1].arabic) {
+    result += dictionary[1].roman
+    value -= dictionary[1].arabic
   }
 
   while (value > dictionary[0].arabic - 1) {
