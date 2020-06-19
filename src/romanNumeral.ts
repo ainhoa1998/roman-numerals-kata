@@ -6,24 +6,28 @@ interface Dictionary {
 export function romanNumeral(arabic: number): string {
   const dictionary: Dictionary[] = [
     {
-      arabic: 1,
-      roman: 'I',
+      arabic: 40,
+      roman: 'XL',
     },
     {
-      arabic: 4,
-      roman: 'IV',
-    },
-    {
-      arabic: 5,
-      roman: 'V',
+      arabic: 10,
+      roman: 'X',
     },
     {
       arabic: 9,
       roman: 'IX',
     },
     {
-      arabic: 10,
-      roman: 'X',
+      arabic: 5,
+      roman: 'V',
+    },
+    {
+      arabic: 4,
+      roman: 'IV',
+    },
+    {
+      arabic: 1,
+      roman: 'I',
     },
   ]
   let result = ''
@@ -33,29 +37,10 @@ export function romanNumeral(arabic: number): string {
     return dictionary.find((entry) => entry.arabic === arabic).roman
   }
 
-  while (value >= dictionary[4].arabic) {
-    result += dictionary[4].roman
-    value -= dictionary[4].arabic
-  }
-
-  if (value === dictionary[3].arabic) {
-    result += dictionary[3].roman
-    value -= dictionary[3].arabic
-  }
-
-  while (value >= dictionary[2].arabic) {
-    result += dictionary[2].roman
-    value -= dictionary[2].arabic
-  }
-
-  if (value === dictionary[1].arabic) {
-    result += dictionary[1].roman
-    value -= dictionary[1].arabic
-  }
-
-  while (value >= dictionary[0].arabic) {
-    result += dictionary[0].roman
-    value -= dictionary[0].arabic
+  while (value > 0) {
+    console.log(value)
+    result += dictionary.find((entry) => value >= entry.arabic).roman
+    value -= dictionary.find((entry) => value >= entry.arabic).arabic
   }
 
   return result
