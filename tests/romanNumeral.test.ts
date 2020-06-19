@@ -16,6 +16,7 @@ describe('Kata Roman Numerals', () => {
     [16, 'XVI'],
     [17, 'XVII'],
     [19, 'XIX'],
+    [24, 'XXIV'],
   ])('el número %i es %s', (arabic, roman) => {
     const result = romanNumeral(arabic)
 
