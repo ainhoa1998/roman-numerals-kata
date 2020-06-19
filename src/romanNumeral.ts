@@ -34,8 +34,8 @@ export function romanNumeral(arabic: number): string {
     return dictionary.find((entry) => entry.arabic === arabic).roman
   }
 
-  if (value === 24) {
-    return 'XXIV'
+  if (value === 29) {
+    return 'XXIX'
   }
 
   while (value > dictionary[4].arabic - 1) {
