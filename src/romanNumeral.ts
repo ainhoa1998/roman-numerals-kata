@@ -6,6 +6,10 @@ interface Dictionary {
 export function romanNumeral(arabic: number): string {
   const dictionary: Dictionary[] = [
     {
+      arabic: 90,
+      roman: 'XC',
+    },
+    {
       arabic: 50,
       roman: 'L',
     },
