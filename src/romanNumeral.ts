@@ -33,7 +33,7 @@ export function romanNumeral(arabic: number): string {
     return dictionary.find((entry) => entry.arabic === arabic).roman
   }
 
-  while (value > dictionary[4].arabic - 1) {
+  while (value >= dictionary[4].arabic) {
     result += dictionary[4].roman
     value -= dictionary[4].arabic
   }
@@ -43,7 +43,7 @@ export function romanNumeral(arabic: number): string {
     value -= dictionary[3].arabic
   }
 
-  while (value > dictionary[2].arabic - 1) {
+  while (value >= dictionary[2].arabic) {
     result += dictionary[2].roman
     value -= dictionary[2].arabic
   }
@@ -53,7 +53,7 @@ export function romanNumeral(arabic: number): string {
     value -= dictionary[1].arabic
   }
 
-  while (value > dictionary[0].arabic - 1) {
+  while (value >= dictionary[0].arabic) {
     result += dictionary[0].roman
     value -= dictionary[0].arabic
   }
