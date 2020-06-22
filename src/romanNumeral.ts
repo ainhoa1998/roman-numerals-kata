@@ -4,7 +4,24 @@ interface Dictionary {
 }
 
 export function romanNumeral(arabic: number): string {
-  const dictionary: Dictionary[] = [
+  const dictionary: Dictionary[] = getDictionary()
+
+  if (dictionary.some((entry) => entry.arabic === arabic)) {
+    return dictionary.find((entry) => entry.arabic === arabic).roman
+  }
+
+  let result = ''
+  let value = arabic
+  while (value > 0) {
+    result += dictionary.find((entry) => value >= entry.arabic).roman
+    value -= dictionary.find((entry) => value >= entry.arabic).arabic
+  }
+
+  return result
+}
+
+function getDictionary() {
+  return [
     {
       arabic: 1000,
       roman: 'M',
@@ -60,17 +77,4 @@ export function romanNumeral(arabic: number): string {
   ].sort(function (a, b) {
     return b.arabic - a.arabic
   })
-
-  if (dictionary.some((entry) => entry.arabic === arabic)) {
-    return dictionary.find((entry) => entry.arabic === arabic).roman
-  }
-
-  let result = ''
-  let value = arabic
-  while (value > 0) {
-    result += dictionary.find((entry) => value >= entry.arabic).roman
-    value -= dictionary.find((entry) => value >= entry.arabic).arabic
-  }
-
-  return result
 }
