@@ -42,6 +42,10 @@ export function romanNumeral(arabic: number): string {
       roman: 'X',
     },
     {
+      arabic: 1,
+      roman: 'I',
+    },
+    {
       arabic: 9,
       roman: 'IX',
     },
@@ -53,11 +57,9 @@ export function romanNumeral(arabic: number): string {
       arabic: 4,
       roman: 'IV',
     },
-    {
-      arabic: 1,
-      roman: 'I',
-    },
-  ]
+  ].sort(function (a, b) {
+    return b.arabic - a.arabic
+  })
   let result = ''
   let value = arabic
 
@@ -65,13 +67,9 @@ export function romanNumeral(arabic: number): string {
     return dictionary.find((entry) => entry.arabic === arabic).roman
   }
 
-  let dictionary2 = dictionary.sort(function (a, b) {
-    return b.arabic - a.arabic
-  })
-
   while (value > 0) {
-    result += dictionary2.find((entry) => value >= entry.arabic).roman
-    value -= dictionary2.find((entry) => value >= entry.arabic).arabic
+    result += dictionary.find((entry) => value >= entry.arabic).roman
+    value -= dictionary.find((entry) => value >= entry.arabic).arabic
   }
 
   return result
