@@ -66,7 +66,6 @@ export function romanNumeral(arabic: number): string {
   }
 
   while (value > 0) {
-    console.log(value)
     result += dictionary.find((entry) => value >= entry.arabic).roman
     value -= dictionary.find((entry) => value >= entry.arabic).arabic
   }
